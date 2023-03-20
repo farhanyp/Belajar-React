@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import HelloWorld from './project/Hello-World/helloWorld';
+// import HelloWorld from './project/Hello-World/helloWorld';
+// import StatelessComp from './project/Stateless/stateless';
+import StatefullComp from './project/Statefull/statefull';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/*Menampilkan komponen Hello World*/}<HelloWorld /> 
+    {/* Menampilkan komponen Hello World<HelloWorld />  */}
+
+    {/* Menampilkan komponen Stateless Component <StatelessComp />   */}
+
+    {/* Menampilkan komponen Statefull Component*/} <StatefullComp />   
   </React.StrictMode>
 );
 
