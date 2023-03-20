@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import HelloWorld from './project/helloWorld';
+import HelloWorld from './project/Hello-World/helloWorld';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HelloWorld />
+    {/*Menampilkan komponen Hello World*/}<HelloWorld /> 
   </React.StrictMode>
 );
 
