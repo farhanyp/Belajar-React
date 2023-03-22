@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import HelloWorld from './project/Hello-World/helloWorld';
-// import StatelessComp from './project/Stateless/stateless';
-import StatefullComp from './project/Statefull/statefull';
+import Home from './project/props/Home';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +11,9 @@ root.render(
 
     {/* Menampilkan komponen Stateless Component <StatelessComp />   */}
 
-    {/* Menampilkan komponen Statefull Component*/} <StatefullComp />   
+    {/* Menampilkan komponen Statefull Component <StatefullComp />   */}
+
+    {/* Menampilkan komponen Statefull Component*/} <Home />   
   </React.StrictMode>
 );
 

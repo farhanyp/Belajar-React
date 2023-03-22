@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.youtube-wrapper{
+    width: 200px;
+    border: 1px solid #000;
+    margin: 30px 1%;
+    display: inline-block;
+}
+
+.thumbnail{
+    position: relative;
+    width: 190px;
+}
+
+.thumbnail p{
+    padding: 2px 5px;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    bottom: 7%;
+}
+
+.title-youtube{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.desc-youtube{
+    font-size: 15px;
+    font-weight: 100;
+}
+
