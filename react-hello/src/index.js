@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from './project/props/Home';
+import Product from './project/UpdateParent/Product';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +13,9 @@ root.render(
 
     {/* Menampilkan komponen Statefull Component <StatefullComp />   */}
 
-    {/* Menampilkan komponen Statefull Component*/} <Home />   
+    {/* Menampilkan komponen Home Component <Home />    */}
+
+    {/* Menampilkan komponen Home Component*/} <Product />    
   </React.StrictMode>
 );
 
