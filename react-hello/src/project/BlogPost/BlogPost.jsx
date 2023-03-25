@@ -1,5 +1,5 @@
-import axios from "axios";
 import React from "react";
+import axios from "axios";
 import "./BlogPost.css"
 import Post from "./Post"
 
@@ -8,16 +8,29 @@ class BlogPost extends React.Component{
         post: []
     }
 
+    getDataAPI = () => {
+        // Menggunakan Axios
+        axios.get('http://localhost:3004/posts').then((res) => {
+            this.setState({
+                post: res.data
+            })
+        })
+    }
+
+    handleRemove = (id) =>{
+        axios.delete(`http://localhost:3004/posts/${id}`).then((data) => console.log(data))
+        this.getDataAPI()
+    }
+
     componentDidMount(){
+        
+        this.getDataAPI()
 
         // Menggunakan Fetch
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(response => response.json).then(json => console.log(json))
-
-        // Menggunakan Axios
-        // axios.get('https://jsonplaceholder.typicode.com/posts').then((res) => {
+        // fetch('http://localhost:3004/posts')
+        // .then(response => response.json()).then(json => {
         //     this.setState({
-        //         post: res.data
+        //         post: json
         //     })
         // })
 
@@ -29,8 +42,8 @@ class BlogPost extends React.Component{
             <>
             <p className="section-title"></p>
             {
-            this.state.post.map((data) => {
-                return <Post key={data.id} title ={data.title} desc={data.body}/>
+            this.state.post.map((post) => {
+                return <Post key={post.id} data={post} remove = {this.handleRemove}/>
             })
             }
             
