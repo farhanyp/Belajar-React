@@ -17,6 +17,10 @@
     margin-left: 20px;
 }
 
+.post p.title a{
+    text-decoration: none;
+}
+
 
 .img-thumb {
     width: 200px;

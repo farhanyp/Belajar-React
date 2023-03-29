@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
 import BlogPost from "../BlogPost/BlogPost";
 import Product from "../UpdateParent/Product";
 import TryLifecycleReact from "../lifecycleReact/tryLifecycleReact"
+import DetailPost from "../BlogPost/DetailPost";
 import '../ReactRouter/Home.css'
 
 class ReactRouter extends React.Component{
@@ -40,6 +41,7 @@ class ReactRouter extends React.Component{
                 <Routes>
                     <Route path="/" element={<BlogPost/>}/>
                     <Route path="/product" element={<Product/>}/>
+                    <Route path="/detail-post/:id" element={<DetailPost/>}/>
                     <Route path="/lifecycle" element={<TryLifecycleReact/>}/>
                 </Routes>
             </BrowserRouter>

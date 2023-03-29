@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./BlogPost.css"
 import Post from "./Post"
+import { Link } from "react-router-dom";
 
 class BlogPost extends React.Component{
     state = {
@@ -85,8 +86,8 @@ class BlogPost extends React.Component{
         }
     }
 
-    handleDetail = () =>{
-        console.log(this.props)
+    handleDetail = (id) =>{
+        <Link to={`/product`}/>
     }
 
     componentDidMount(){
