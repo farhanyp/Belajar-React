@@ -85,6 +85,10 @@ class BlogPost extends React.Component{
         }
     }
 
+    handleDetail = () =>{
+        console.log(this.props)
+    }
+
     componentDidMount(){
 
         this.getDataAPI()
@@ -113,7 +117,7 @@ class BlogPost extends React.Component{
             </div>
             {
             this.state.post.map((post) => {
-                return <Post key={post.id} data={post} remove = {this.handleRemove} update = {this.handleUpdate}/>
+                return <Post key={post.id} data={post} remove = {this.handleRemove} update = {this.handleUpdate} detail = {this.handleDetail}/>
             })
             }
             

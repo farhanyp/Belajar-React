@@ -1,7 +1,7 @@
 import React from "react";
 import YoutubeComp from "./YoutubeComp";
 
-class Home extends React.Component{
+class YoutubeCompPage extends React.Component{
     render(){
         return(
             <div>
@@ -15,4 +15,4 @@ class Home extends React.Component{
     }
 }
 
-export default Home
+export default YoutubeCompPage
