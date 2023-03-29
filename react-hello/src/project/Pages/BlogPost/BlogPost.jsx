@@ -49,7 +49,8 @@ class BlogPost extends React.Component{
                     id:"",
                     title:"",
                     body:""
-                }
+                },
+                isUpdate: false
             })
         })
     }

@@ -20,7 +20,7 @@ class CardProduct extends React.Component{
         if(this.state.order > 0){
             this.setState({
                 order: this.state.order - 1
-            })
+            }, () => {this.props.changeState(this.state.order)})
         }
     }
 
