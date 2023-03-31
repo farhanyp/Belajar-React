@@ -33,6 +33,6 @@ store.subscribe(()=>{
     console.log("State Change:", store.getState())
 })
 
-// Dispatch  = fungsi untuk mengubah sesuatu didalam reducer
+// Dispatch  = fungsi untuk mengubah sesuatu didalam reducer atau mentrigger reducer
 store.dispatch({type: "ADD_AGE"})
 store.dispatch({type: "ADD_VALUE", newValue: 20})
