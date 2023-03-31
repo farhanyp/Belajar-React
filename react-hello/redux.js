@@ -3,19 +3,36 @@ const createStore = redux.createStore
 
 const initialState = {
     value: 0,
-    name: ""
+    age: 21
 }
 
-// Reducer
-const rootReducer = (state = initialState, action) => {
-    return state
-}
+// Reducer = fungsi untuk mengubah dan memasukan kedalam store
+const rootReducer = (state = initialState ,action)=>{
+    switch(action.type){
+        case 'ADD_AGE':
+            return{
+                ...state,
+                age: state.age + 1
+            }
+        case 'ADD_VALUE':
+            return{
+                ...state,
+                value: state.value + action.newValue
+            }
+        default:
+            return state
+    }
+    }
 
-// Store
+// Store = fungsi untuk sebagai wadah dari state
 const store = createStore(rootReducer)
 console.log(store.getState())
 
+// Subscription = mengecek store apakah ada perubahan jika ada maka store diambil dan ditampilkan
+store.subscribe(()=>{
+    console.log("State Change:", store.getState())
+})
 
-// Dispatch
-
-// Subsription
+// Dispatch  = fungsi untuk mengubah sesuatu didalam reducer
+store.dispatch({type: "ADD_AGE"})
+store.dispatch({type: "ADD_VALUE", newValue: 20})
