@@ -4,6 +4,7 @@ import BlogPost from "../BlogPost/BlogPost";
 import Product from "../UpdateParent/Product";
 import TryLifecycleReact from "../lifecycleReact/tryLifecycleReact"
 import DetailPost from "../BlogPost/DetailPost";
+import Youtube from "../props/YoutubeCompPage"
 import '../ReactRouter/Home.css'
 
 class ReactRouter extends React.Component{
@@ -33,6 +34,13 @@ class ReactRouter extends React.Component{
                     }
                     >Lifecylce</NavLink>
 
+<NavLink
+                    to="/youtube"
+                    className={({isActive, isPending}) =>
+                        isPending ? "pending": isActive ? "active" : ""
+                    }
+                    >Youtube</NavLink>
+
                     {/* Tanpa menggunakan isActive dan isPending */}
                     {/* <Link to="/">BlogPost</Link>
                     <Link to="/lifecycle">Lifecylce</Link> */}
@@ -43,6 +51,7 @@ class ReactRouter extends React.Component{
                     <Route path="/product" element={<Product/>}/>
                     <Route path="/detail-post/:id" element={<DetailPost/>}/>
                     <Route path="/lifecycle" element={<TryLifecycleReact/>}/>
+                    <Route path="/youtube" element={<Youtube/>}/>
                 </Routes>
             </BrowserRouter>
             </>

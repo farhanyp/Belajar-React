@@ -12,7 +12,7 @@ const DetailPost = () => {
     const getPost = async () => {
         try{
             axios.get(`http://localhost:3004/posts/${param.id}`).then((result) => setPost(result.data))
-
+            console.log(post)
         }catch(e){
             console.log(e)
         }
