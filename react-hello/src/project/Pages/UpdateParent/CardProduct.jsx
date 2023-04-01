@@ -15,7 +15,7 @@ class CardProduct extends React.Component{
                 <p className="prdouct-title">Daging Ayam Berbumbu</p>
                 <p className="prdouct-price">Rp. 410.000</p>
                 
-                <Counter changeState = {this.props.changeState}/>
+                <Counter/>
 
             </div>
             </>

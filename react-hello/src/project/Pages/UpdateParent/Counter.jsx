@@ -1,48 +1,55 @@
 import React from "react";
 import { connect } from "react-redux";
+import TypeAction from "../../Redux/globalTypeAction";
 
 class Counter extends React.Component{
     
-    state= {
-        order:3
-    }
+    // state= {
+    //     order:3
+    // }
 
-    handlePropsState = (value) =>{
-        this.props.changeState(value)
-    }
+    // handlePropsState = (value) =>{
+    //     this.props.changeState(value)
+    // }
 
-    handlePlus = () =>{
-        this.setState({
-            order: this.state.order + 1
-        }, () => {this.handlePropsState(this.state.order)})
-    }
+    // handlePlus = () =>{
+    //     this.setState({
+    //         order: this.state.order + 1
+    //     }, () => {this.handlePropsState(this.state.order)})
+    // }
 
-    handleMinus = () =>{
-        if(this.state.order > 0){
-            this.setState({
-                order: this.state.order - 1
-            }, () => {this.props.changeState(this.state.order)})
-        }
-    }
+    // handleMinus = () =>{
+    //     if(this.state.order > 0){
+    //         this.setState({
+    //             order: this.state.order - 1
+    //         }, () => {this.props.changeState(this.state.order)})
+    //     }
+    // }
 
     render(){
-        console.log(this.props)
         return(
             <>
             <div className="counter">
-                    <button className="minus" onClick={this.handleMinus}>-</button>
+                    <button className="minus" onClick={this.props.handleMinus}>-</button>
                     <input type="text" value={this.props.order} />
-                    <button className="plus" onClick={this.handlePlus}>+</button>
+                    <button className="plus" onClick={this.props.handlePlus}>+</button>
                 </div>
             </>
         )
     }
 }
 
-const mapStateToProps = (state) =>{
-    return{
-        order: state.totalOrder
+const mapStateToProps = (state)=>{
+    return {
+        order: state.orderTotal
     }
 }
 
-export default connect(mapStateToProps)(Counter)
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        handlePlus: () => dispatch({type: TypeAction.PLUS_ORDER}),
+        handleMinus: () => dispatch({type: TypeAction.MINUS_ORDER})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)

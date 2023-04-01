@@ -3,17 +3,18 @@ import {FaShoppingCart} from 'react-icons/fa';
 import {BsShop} from 'react-icons/bs';
 import CardProduct from "./CardProduct";
 import "./Product.css"
+import { connect } from "react-redux";
 
 class Product extends React.Component{
-    state= {
-        order:3
-    }
+    // state= {
+    //     order:3
+    // }
 
-    handleChangeState = (newValue) => {
-        this.setState({
-            order: newValue
-        })
-    }
+    // handleChangeState = (newValue) => {
+    //     this.setState({
+    //         order: newValue
+    //     })
+    // }
 
     render(){
         return(
@@ -24,17 +25,21 @@ class Product extends React.Component{
                 </div>
                 <div className="troley">
                 <FaShoppingCart />
-                <div className="count">{this.state.order}</div>
+                <div className="count">{this.props.order}</div>
                 </div>
             </div>
 
-            <CardProduct changeState={(value) => this.handleChangeState(value)}/>
+            <CardProduct/>
 
             </>
         )
     }
-
-
 }
 
-export default Product
+const mapStateToProps = (state) => {
+    return{
+        order: state.orderTotal
+    }
+}
+
+export default connect(mapStateToProps)(Product)

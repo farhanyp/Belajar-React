@@ -1,5 +1,6 @@
 import React from "react";
 import YoutubeComp from "./YoutubeComp";
+import { connect } from "react-redux";
 
 class YoutubeCompPage extends React.Component{
     render(){
@@ -10,9 +11,17 @@ class YoutubeCompPage extends React.Component{
                 <YoutubeComp time="6.80" title="ini title 2" desc="ini desc 2"/>
                 <YoutubeComp time="7.98" title="ini title 3" desc="ini desc 3"/>
                 <YoutubeComp/>
+                <hr />
+                <h1>Total Order: {this.props.order}</h1>
             </div>
         )
     }
 }
 
-export default YoutubeCompPage
+const mapStateToProps = (state) => {
+    return{
+        order: state.orderTotal
+    }
+}
+
+export default connect(mapStateToProps)(YoutubeCompPage)
