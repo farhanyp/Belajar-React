@@ -1,7 +1,7 @@
 import TypeAction from './globalTypeAction'
 
 const initialState = {
-    orderTotal: 0
+    orderTotal: 5
   }
   
   // Reducer

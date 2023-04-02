@@ -1,6 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
-import TypeAction from "../../Redux/globalTypeAction";
+import { RootContext } from "../ReactRouter/ReactRouter";
+// import { connect } from "react-redux";
+// import TypeAction from "../../Redux/globalTypeAction";
 
 class Counter extends React.Component{
     
@@ -29,27 +30,36 @@ class Counter extends React.Component{
     render(){
         return(
             <>
-            <div className="counter">
-                    <button className="minus" onClick={this.props.handleMinus}>-</button>
-                    <input type="text" value={this.props.order} />
-                    <button className="plus" onClick={this.props.handlePlus}>+</button>
-                </div>
+            <RootContext.Consumer>
+                {
+                    value => {
+                        return(
+                            <div className="counter">
+                            <button className="minus" onClick={()=>value.dispatch({type:"MINUS_ORDER"})}>-</button>
+                            <input type="text" value={value.state.totalOrder} />
+                            <button className="plus" onClick={()=> value.dispatch({type:"PLUS_ORDER"})}>+</button>
+                    </div>
+                        )
+                    }
+                }
+            </RootContext.Consumer>
             </>
         )
     }
 }
 
-const mapStateToProps = (state)=>{
-    return {
-        order: state.orderTotal
-    }
-}
+// const mapStateToProps = (state)=>{
+//     return {
+//         order: state.orderTotal
+//     }
+// }
 
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        handlePlus: () => dispatch({type: TypeAction.PLUS_ORDER}),
-        handleMinus: () => dispatch({type: TypeAction.MINUS_ORDER})
-    }
-}
+// const mapDispatchToProps = (dispatch) =>{
+//     return{
+//         handlePlus: () => dispatch({type: TypeAction.PLUS_ORDER}),
+//         handleMinus: () => dispatch({type: TypeAction.MINUS_ORDER})
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+// export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default Counter
