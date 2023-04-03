@@ -2,7 +2,7 @@ import React from "react";
 import {FaShoppingCart} from 'react-icons/fa';
 import {BsShop} from 'react-icons/bs';
 import CardProduct from "./CardProduct";
-import { RootContext } from "../ReactRouter/ReactRouter";
+import { GlobalConsumer } from "../../Context/GlobalContext";
 import "./Product.css"
 // import { connect } from "react-redux";
 
@@ -20,24 +20,15 @@ class Product extends React.Component{
     render(){
         return(
             <>
-            <RootContext.Consumer>
-                {
-                    value => {
-                        return(
-                            <div className="header">
-                                <div className="logo">
-                                <BsShop className="img"/>
-                                </div>
-                                <div className="troley">
-                                <FaShoppingCart />
-                                <div className="count">{value.state.totalOrder}</div>
-                                </div>
-                            </div>
-                            
-                        )
-                    }
-                }
-            </RootContext.Consumer>
+            <div className="header">
+                <div className="logo">
+                    <BsShop className="img"/>
+                    </div>
+                    <div className="troley">
+                    <FaShoppingCart />
+                    <div className="count">{this.props.state.totalOrder}</div>
+                </div>                    
+            </div>
             <CardProduct/>
             </>
         )
@@ -51,4 +42,4 @@ class Product extends React.Component{
 // }
 
 // export default connect(mapStateToProps)(Product)
-export default Product
+export default GlobalConsumer(Product)

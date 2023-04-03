@@ -3,6 +3,7 @@ import axios from "axios";
 import "./BlogPost.css"
 import Post from "./Post"
 import { Link } from "react-router-dom";
+import API from "../../Services/Service";
 
 class BlogPost extends React.Component{
     state = {
@@ -13,20 +14,27 @@ class BlogPost extends React.Component{
             title:"",
             body:""
         },
-        isUpdate: false
+        isUpdate: false,
+        photo: []
     }
 
     getDataAPI = async () => {
-        // Menggunakan Axios
-        await axios.get('http://localhost:3004/posts?_sort=id&_order=desc').then((res) => {
-                this.setState({
-                    post: res.data
-                })
+        API.getBlogPost().then((res) => {
+            this.setState({
+                post: res
             })
+        })
+
+        API.getPhoto().then((res) => {
+            this.setState({
+                photo: res
+            })
+        })
     }
 
     postDataToAPI = () => {
-        axios.post('http://localhost:3004/posts/', this.state.blogPostForm).then(() => this.getDataAPI().then(() =>{
+        API.postData(this.state.blogPostForm).then(() => {
+            this.getDataAPI()
             this.setState({
                 blogPostForm: {
                     userId:1,
@@ -35,14 +43,12 @@ class BlogPost extends React.Component{
                     body:""
                 }
             })
-        }), 
-        (error)=>{
-            console.log(error)
         })
     }
 
     putDataToAPI = () =>{
-        axios.put(`http://localhost:3004/posts/${this.state.blogPostForm.id}`, this.state.blogPostForm).then(() => this.getDataAPI()).then(() => {
+        API.putData(this.state.blogPostForm.id, this.state.blogPostForm).then(() => {
+            this.getDataAPI()
             this.setState({
                 blogPostForm: {
                     userId:1,
@@ -68,7 +74,9 @@ class BlogPost extends React.Component{
     }
 
     handleRemove = (id) =>{
-        axios.delete(`http://localhost:3004/posts/${id}`).then(()=>this.getDataAPI())
+        API.deleteData(id)
+
+        this.getDataAPI()
         
     }
 
