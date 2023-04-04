@@ -7,6 +7,7 @@ import DetailPost from "../BlogPost/DetailPost";
 import Youtube from "../props/YoutubeCompPage"
 import GlobalProvider from "../../Context/GlobalContext";
 import '../ReactRouter/Home.css'
+import Hooks from "../Hooks/Hooks";
 
 
 class ReactRouter extends React.Component{
@@ -43,6 +44,13 @@ class ReactRouter extends React.Component{
                         }
                         >Youtube</NavLink>
 
+<NavLink
+                        to="/hooks"
+                        className={({isActive, isPending}) =>
+                            isPending ? "pending": isActive ? "active" : ""
+                        }
+                        >Hooks</NavLink>
+
                         {/* Tanpa menggunakan isActive dan isPending */}
                         {/* <Link to="/">BlogPost</Link>
                         <Link to="/lifecycle">Lifecylce</Link> */}
@@ -54,6 +62,7 @@ class ReactRouter extends React.Component{
                         <Route path="/detail-post/:id" element={<DetailPost/>}/>
                         <Route path="/lifecycle" element={<TryLifecycleReact/>}/>
                         <Route path="/youtube" element={<Youtube/>}/>
+                        <Route path="/hooks" element={<Hooks/>}/>
                     </Routes>
                 </BrowserRouter>
             </>
