@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './containers/pages/App/Index';
-import reportWebVitals from './reportWebVitals';
+import App from './containers/pages/App/App';
 import firebase from './config/firebase/index'
+import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './config/redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 console.log(firebase)
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App/>
+    </Provider>
   </React.StrictMode>
 );
 

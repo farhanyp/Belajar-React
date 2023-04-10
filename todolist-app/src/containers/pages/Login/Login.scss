@@ -52,5 +52,12 @@
             background: #1873bb;
             cursor: pointer;
         }
+        &.disabled {
+            background: gray;
+            border: 1px solid gray;
+            &:hover{
+                cursor: not-allowed;
+            }
+        }
     }
 }
